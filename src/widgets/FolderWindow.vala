@@ -506,8 +506,6 @@ public class DesktopFolder.FolderWindow : Gtk.ApplicationWindow {
         var newlinkdir_item   = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_FOLDER_LINK);
         var newpanel_item     = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_DESKTOP_FOLDER);
         var newlinkpanel_item = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_LINK_PANEL);
-        var newnote_item      = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_NOTE);
-        var newphoto_item     = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_PHOTO);
 
         // var aligntogrid_item     = new Gtk.CheckMenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_ALIGN_TO_GRID);
         var trash_item  = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_REMOVE_DESKTOP_FOLDER);
@@ -525,8 +523,6 @@ public class DesktopFolder.FolderWindow : Gtk.ApplicationWindow {
         newlinkdir_item.activate.connect (() => { this.new_link ((int) event.x, (int) event.y, true); });
         newpanel_item.activate.connect (this.new_desktop_folder);
         newlinkpanel_item.activate.connect (this.new_link_panel);
-        newnote_item.activate.connect (this.new_note);
-        newphoto_item.activate.connect (this.new_photo);
 
         // ((Gtk.CheckMenuItem)aligntogrid_item).set_active (this.manager.get_settings ().align_to_grid);
         // ((Gtk.CheckMenuItem)aligntogrid_item).toggled.connect (this.on_toggle_align_to_grid);
@@ -560,8 +556,6 @@ public class DesktopFolder.FolderWindow : Gtk.ApplicationWindow {
         new_submenu.append (new MenuItemSeparator ());
         new_submenu.append (newpanel_item);
         new_submenu.append (newlinkpanel_item);
-        new_submenu.append (newnote_item);
-        new_submenu.append (newphoto_item);
 
         // context_menu.append (new MenuItemSeparator ());
         // context_menu.append (aligntogrid_item);
@@ -954,22 +948,6 @@ public class DesktopFolder.FolderWindow : Gtk.ApplicationWindow {
      */
     protected void new_link_panel () {
         DesktopFolder.Util.create_new_link_panel (this);
-    }
-
-    /*
-     * @name new_note
-     * @description show a dialog to create a new note
-     */
-    protected void new_note () {
-        DesktopFolder.Util.create_new_note (this);
-    }
-
-    /**
-     * @name new_photo
-     * @description show a dialog to create a new photo
-     */
-    protected void new_photo () {
-        DesktopFolder.Util.create_new_photo (this);
     }
 
     /**

@@ -93,8 +93,6 @@ public class DesktopFolder.DesktopWindow : DesktopFolder.FolderWindow {
         var newlinkdir_item   = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_FOLDER_LINK);
         var newpanel_item     = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_DESKTOP_FOLDER);
         var newlinkpanel_item = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_LINK_PANEL);
-        var newnote_item      = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_NOTE);
-        var newphoto_item     = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_NEW_PHOTO);
         var properties_item   = new Gtk.MenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_PROPERTIES_TOOLTIP);
 
         // var aligntogrid_item  = new Gtk.CheckMenuItem.with_label (DesktopFolder.Lang.DESKTOPFOLDER_MENU_ALIGN_TO_GRID);
@@ -110,8 +108,6 @@ public class DesktopFolder.DesktopWindow : DesktopFolder.FolderWindow {
         newlinkdir_item.activate.connect (() => { this.new_link ((int) event.x, (int) event.y, true); });
         newpanel_item.activate.connect (this.new_desktop_folder);
         newlinkpanel_item.activate.connect (this.new_link_panel);
-        newnote_item.activate.connect (this.new_note);
-        newphoto_item.activate.connect (this.new_photo);
 
         // ((Gtk.CheckMenuItem)aligntogrid_item).set_active (this.manager.get_settings ().align_to_grid);
         // ((Gtk.CheckMenuItem)aligntogrid_item).toggled.connect (this.on_toggle_align_to_grid);
@@ -142,8 +138,6 @@ public class DesktopFolder.DesktopWindow : DesktopFolder.FolderWindow {
         new_submenu.append (new MenuItemSeparator ());
         new_submenu.append (newpanel_item);
         new_submenu.append (newlinkpanel_item);
-        new_submenu.append (newnote_item);
-        new_submenu.append (newphoto_item);
 
         // context_menu.append (new MenuItemSeparator ());
         // context_menu.append (aligntogrid_item);

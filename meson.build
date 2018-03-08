@@ -47,9 +47,7 @@ src = [
        'src/utils/EditableLabel.vala',
        'src/widgets/DesktopWindow.vala',
        'src/widgets/FolderWindow.vala',
-       'src/widgets/NoteWindow.vala',
        'src/widgets/ItemView.vala',
-       'src/widgets/PhotoWindow.vala',
        'src/settings/PositionSettings.vala',
        'src/settings/FolderSettings.vala',
        'src/settings/ItemSettings.vala',
@@ -58,8 +56,6 @@ src = [
        'src/logic/DesktopManager.vala',
        'src/logic/FolderManager.vala',
        'src/logic/ItemManager.vala',
-       'src/logic/NoteManager.vala',
-       'src/logic/PhotoManager.vala',
        'src/Dialogs/ProgressDialog.vala',
        'src/Dialogs/PanelPropertiesWindow.vala'
       ]

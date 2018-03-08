@@ -120,57 +120,6 @@ namespace DesktopFolder.Util {
     }
 
     /**
-     * @name create_new_photo
-     * @param {Gtk.Window} window the parent window to show the dialog
-     * @description show a dialog to create a new photo
-     */
-    public static void create_new_photo (Gtk.Window window) {
-        Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-            DesktopFolder.Lang.PHOTO_SELECT_PHOTO_MESSAGE, window,
-            Gtk.FileChooserAction.OPEN,
-            DesktopFolder.Lang.DIALOG_CANCEL,
-            Gtk.ResponseType.CANCEL,
-            DesktopFolder.Lang.DIALOG_SELECT,
-            Gtk.ResponseType.ACCEPT);
-
-        Gtk.FileFilter filter = new Gtk.FileFilter ();
-        filter.set_name ("Images");
-        filter.add_mime_type ("image");
-        filter.add_mime_type ("image/png");
-        filter.add_mime_type ("image/jpeg");
-        filter.add_mime_type ("image/gif");
-        filter.add_pattern ("*.png");
-        filter.add_pattern ("*.jpg");
-        filter.add_pattern ("*.gif");
-        filter.add_pattern ("*.tif");
-        filter.add_pattern ("*.xpm");
-        chooser.add_filter (filter);
-
-        // Process response:
-        if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-            var photo_path = chooser.get_filename ();
-            debug ("Photo path: " + photo_path);
-
-            try {
-                // Check if the image is valid
-                new Gdk.Pixbuf.from_file (photo_path);
-
-                PhotoSettings ps   = new PhotoSettings (photo_path);
-                string        path = DesktopFolderApp.get_app_folder () + "/" + ps.name + "." + DesktopFolder.NEW_PHOTO_EXTENSION;
-                File          file = File.new_for_path (path);
-                if (file.query_exists ()) {
-                    debug ("Photo already exists, not creating.");
-                } else {
-                    ps.save_to_file (file);
-                }
-            } catch {
-                debug ("Invalid photo: " + photo_path);
-            }
-        }
-        chooser.close ();
-    }
-
-    /**
      * @name create_new_desktop_folder
      * @description create a new folder inside the desktop
      * @param {Gtk.Window} window the parent window to show the dialog
@@ -239,32 +188,6 @@ namespace DesktopFolder.Util {
         }
 
         chooser.close ();
-    }
-
-    /**
-     * @name create_new_note
-     * @description create a new note inside the desktop
-     * @param {Gtk.Window} window the parent window to show the dialog
-     */
-    public static void create_new_note (Gtk.Window window) {
-        RenameDialog dialog = new RenameDialog (window,
-                DesktopFolder.Lang.NOTE_ENTER_TITLE,
-                DesktopFolder.Lang.NOTE_ENTER_NAME,
-                DesktopFolder.Lang.NOTE_NEW);
-        dialog.on_rename.connect ((new_name) => {
-            string sanitized_name = DesktopFolder.Util.sanitize_name (new_name);
-            string path = DesktopFolderApp.get_app_folder () + "/" + sanitized_name + "." + DesktopFolder.NEW_NOTE_EXTENSION;
-            File file = File.new_for_path (path);
-            if (!DesktopFolder.Util.check_name (sanitized_name)) {
-                DesktopFolder.Util.show_invalid_name_error_dialog (window, sanitized_name);
-            } else if (file.query_exists ()) {
-                DesktopFolder.Util.show_file_exists_error_dialog (window, sanitized_name, _("Note"));
-            } else {
-                NoteSettings ns = new NoteSettings (sanitized_name);
-                ns.save_to_file (file);
-            }
-        });
-        dialog.show_all ();
     }
 
     private static string sanitize_name (string new_name) {
