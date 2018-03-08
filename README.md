@@ -1,39 +1,16 @@
 # Desktop Folder
 Bring your desktop back to life.
-
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.spheras.desktopfolder)
+This is a fork of [Desktop Folder](https://github.com/spheras/desktopfolder), focusing on a more traditional desktop experience.
 
 ![Desktop Folder Banner](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/banner.png)
 
 ## Description
 Organize your desktop with panels that hold your things.
+- Desktop folder is open by default, panels are optional.
 - Access files, folders and apps from your desktop
 - Drop files, folders, links and .desktop launchers inside panels
 - Resize, position and color panels
-- Display photos and keep notes on your desktop
 - Reveal the desktop with ⌘-D
-
-![Example1](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-color.gif)
-![Example2](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-grid.gif)
-![Example3](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-item.gif)
-![Example4](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-link.gif)
-![Example5](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-note.gif)
-![Example6](https://raw.githubusercontent.com/spheras/desktopfolder/master/etc/test-photo.gif)
-
-## How to Install
-If you use elementary OS, you can get it directly from the AppCenter.
-
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.spheras.desktopfolder)
-
-Our main target is elementary, but Desktop Folder should also work on Ubuntu and GNOME 3. You should use the latest [.deb release](https://github.com/spheras/desktopfolder/releases). To install the .deb with apt:
-
-`sudo apt install ./com.github.spheras.desktopfolder_[version]_amd64.deb`
-
-Open it like any other app after installing. Desktop Folder will launch automatically when you next log in.
-
-## Current Status on Wayland Support
-
-Wayland (in Ubuntu since 17.10) is not fully supported yet, and we've experienced problems with adding support for it. We are working hard to fix this. You're welcome to try Desktop Folder and help us find or fix issues.
 
 ## Contributing
 
